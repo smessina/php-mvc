@@ -6,11 +6,14 @@
 
 	$datos =  $unProducto->getProducto();
 
-	$plantilla = file_get_contents('vista/producto.html');
+	$plantilla = file_get_contents('vista/plantillas/catalogo.html');
+	$ficha = file_get_contents('vista/producto.html');
 
 	$diccionario = array("{NOMBRE}", "{PRECIO}", "{STOCK}");
 
-	echo str_replace($datos, $diccionario, $plantilla);
+	$ficha = str_replace($datos, $diccionario, $ficha);
+
+	echo str_replace($ficha, "{CATALOGO}", $plantilla);
 
 
 ?>
